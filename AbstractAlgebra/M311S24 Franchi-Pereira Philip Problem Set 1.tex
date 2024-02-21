@@ -1,0 +1,194 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{graphicx}
+%\usepackage{parskip}% http://ctan.org/pkg/parskip
+\usepackage{setspace}
+\usepackage{amsfonts}
+
+\setstretch{1.05}
+\begin{document}
+
+\noindent{\Large\textbf{M311S24 Problem Set 1} \textit{Franchi-Pereira, Philip}} \\
+
+\paragraph{1. Problem:} Let \( f:X \rightarrow Y\) and \(B_0, B_1 \subseteq Y\) then prove:
+\begin{enumerate}
+	\item[(a)] \(f^*(B_0 \cup B_1) = f^*(B_0) \cup f^*(B_1)\)
+	\item[(b)] \(f^*(B_0 \cap B_1) = f^*(B_0) \cap f^*(B_1)\)
+	\item[(c)] \(f^*(\overline{B_0}) = \overline{f^*(B_0)}\) 
+	\item[(d)] \(f^*(B_0 - B_1) = f^*(B_0) - f^*(B_1)\)
+	\item[(e)] \(f^*(B_0 + B_1) = f^*(B_0) + f^*(B_1)\)
+\end{enumerate}
+
+
+\paragraph{1.a}\(f^*(B_0 \cup B_1) = f^*(B_0) \cup f^*(B_1)\)
+
+It is first neccesary to show that \(f^*(B_0 \cup B_1) \subseteq f^*(B_0) \cup f^*(B_1)\), and then that \(f^*(B_0) \cup f^*(B_1) \subseteq f^*(B_0 \cup B_1) \). Let \(a \in f^*(B_0 \cup B_1) \).  By definition of a preimage, \(f(a) \in B_0 \cup B_1\) and \(a \in X\). So, either \(f(a) \in B_0\) or \(f(a) \in B_1\). To take \(B_0\) first, since \(a \in X\) and \(f(a) \in B_0\), then  \(a \in f^*(B_0)\)  and so \(a \in f^*(B_0) \cup f^*(B_1)\). Similarly, since \(a \in X\) and \(f(a) \in B_1\), then  \(a \in f^*(B_1)\) and so \(a \in f^*(B_0) \cup f^*( B_1)\). Therefore, \(f^*(B_0 \cup B_1) \subseteq f^*(B_0) \cup f^*(B_1)\).
+
+Next, let \(a \in f^*(B_0)\). By definition, \(a \in X\) and \(f(a) \in B_0\). Since \(f(a) \in B_0\), that implies that \(f(a) \in B_0 \cup B_1\), which means that \(a \in f^*(B_0 \cup B_1)\), and therefore \(f^*(B_0) \subseteq f^*(B_0 \cup B_1)\).  Similarly for \(B_1\), \(a \in X\) and \(f(a) \in B_1\). Since \(f(a) \in B_1\), then \(f(a) \in B_0 \cup B_1\). Therefore \(a \in f^*(B_0 \cup B_1)\) and so \(f^*(B_1) \in f^*(B_0 \cup B_1)\).  Since \(f^*(B_0)\) and \(f^*(B_1)\) are both subsets of \(f^*(B_0 \cup B_1)\), \(f^*(B_0) \cup f^*(B_1) \subseteq f^*(B_0 \cup B_1) \). Finally, since \(f^*(B_0 \cup B_1) \subseteq f^*(B_0) \cup f^*(B_1)\) and \(f^*(B_0) \cup f^*(B_1) \subseteq f^*(B_0 \cup B_1) \), \(f^*(B_0 \cup B_1) = f^*(B_0) \cup f^*(B_1)\).
+
+
+\paragraph{1.b}\(f^*(B_0 \cap B_1) = f^*(B_0) \cap f^*(B_1)\)
+
+First, let \(a \in f^*(B_0 \cap B_1)\). By definition, \(f(a) \in B_0 \cap B_1\), which implies that \(f(a) \in B_0\) and \(f(a) \in B_1\). Since \(a \in X\) and \(f(a) \in B_0\), then by definition \(a \in f^*(B_0)\). Similarly since \(a \in X\) and \(f(a) \in B_1\), then \(a \in f^*(B_1)\). Therefore, \(a \in f^*(B_0) \cap f^*(B_1)\) and so \(f^*(B_0 \cap B_1) \subseteq f^*(B_0) \cap f^*(B_1)\).
+
+Next, let \(a \in f^*(B_0) \cap f^*(B_1)\). Therefore \(f(a)\)is in both \(B_0\) and \(B_1\), which implies that \(f(a) \in B_0 \cap B_1\). Since \(a \in X\), then by definition \(a \in  f^*(B_0 \cap B_1)\) and so  \(f^*(B_0) \cap f^*(B_1) \subseteq f^*(B_0 \cap B_1) \). Finally since both \(f^*(B_0 \cap B_1) \subseteq f^*(B_0) \cap f^*(B_1)\) and \(f^*(B_0) \cap f^*(B_1) \subseteq f^*(B_0 \cap B_1) \), \(f^*(B_0 \cap B_1) = f^*(B_0) \cap f^*(B_1)\).
+
+\paragraph{1.c} \(f^*(\overline{B_0}) = \overline{f^*(B_0)}\) 
+
+Let \( a \in f^*(\overline{B_0})\). Then \(f(a) \in \overline{B_0}\), which by definition means that \(f(a) \notin B_0\). Since \(a \in X\) but \(f(a) \notin B_0\), by definition 
+ \(a \in \overline{f^*(B_0)}\) 
+ and therefore \(f^*(\overline{B_0}) \subseteq \overline{f^*(B_0)}\).
+ 
+Next let \(a \in  \overline{f^*(B_0)}\). Then \(a \in X\) but \(a \notin f^*(B_0)\). For \(a \notin f^*(B_0)\) to hold true, either  \(a \notin X\) or \(f(a) \notin B_0\). Since we know \(a \in X\), then \(f(a) \notin B_0\). Finally, since \(f(a) \notin B_0\), \(f(a) \in  \overline{B_0}\), and so 
+ \( a \in f^*(\overline{B_0})\) 
+ and \( \overline{f^*(B_0)} \subseteq f^*(\overline{B_0})\).
+Finally, since \(f^*(\overline{B_0}) \subseteq \overline{f^*(B_0)}\),
+ and
+ \( \overline{f^*(B_0)} \subseteq f^*(\overline{B_0}\), 
+ \(f^*(\overline{B_0}) = \overline{f^*(B_0)}\).
+ 
+ \paragraph{1.d} \(f^*(B_0 - B_1) = f^*(B_0) - f^*(B_1)\)
+ 
+ First we will show that \(f^*(B_0 - B_1) \subseteq f^*(B_0) - f^*(B_1)\). Let \(a \in f^*(B_0-B_1)\). 
+ Then \(f(a) \in (B_0 - B_1)\), and so \(f(a) \in B_0\) and \(f(a) \notin B_1\). Since \(f(a) \in B_0, a \in f^*(B_0)\), and since \(f(a) \notin B_1, a \notin f^*(B_1)\), therefore \(a \in  f^*(B_0) - f^*(B_1)\), and so \(f^*(B_0 - B_1) \subseteq f^*(B_0) - f^*(B_1)\).
+ 
+ Next, we will show that \( f^*(B_0) - f^*(B_1) \subseteq f^*(B_0 - B_1)\). Let \(a \in  f^*(B_0) - f^*(B_1)\). Then, \(a \in f^*(B_0)\) but \(a \notin f^*(B_1)\), which means \(f(a) \in B_0\) but \(f(a) \notin B_1\). Therefore \(f(a) \in (B_0 - B1)\), and so \(a \in f^*(B_0 - B_1)\), and so \(f^*(B_0 - B_1) \subseteq f^*(B_0) - f^*(B_1)\).
+ 
+ Since \(f^*(B_0 - B_1) \subseteq f^*(B_0) - f^*(B_1)\) and \(f^*(B_0 - B_1) \subseteq f^*(B_0) - f^*(B_1)\), \(f^*(B_0 - B_1) = f^*(B_0) - f^*(B_1)\)
+ 
+ 
+ \paragraph{1.e} \(f^*(B_0 + B_1) = f^*(B_0) + f^*(B_1)\)
+ 
+Following from the proofs of Problems 1.a-1.d, and the definition of the symmetric difference, it is clear that 
+ \(
+ 	f^*(B_0 + B_1) =
+ 	f^*( (B_0 \cup B_1) - (B_0 \cap B_1)) = 
+ 	f^*(B_0 \cup B_1) - f^*(B_0 \cap B_1)\)
+ which by definition is \(f^*(B_0) + f^*(B_1)\).
+ 
+\paragraph{2. Problem:} Let \(A_0, A_1 \subseteq X\). Prove or give counter-examples for the following statements.
+
+\begin{enumerate}
+	\item[(a)] \(f_*(A_0 \cup A_1) = f_*(A_0) \cup f_*(A_1)\)
+	\item[(b)] \(f_*(A_0 \cap A_1) = f_*(A_0) \cap f_*(A_1)\)
+	\item[(c)] \(f_*(\overline{A_0}) = \overline{f_*(A_0)}\) 
+	\item[(d)] \(f_*(A_0 - A_1) = f_*(A_0) - f_*(A_1)\)
+	\item[(e)] \(f_*(A_0 + A_1) = f_*(A_0) + f_*(A_1)\)
+\end{enumerate}
+ \paragraph{2.a} \(f_*(A_0 \cup A_1) = f_*(A_0) \cup f_*(A_1)\)
+
+It is first neccesary to show that \(f_*(A_0 \cup A_1) \subseteq f_*(A_0) \cup f_*(A_1)\), and then that \(f_*(A_0) \cup f_*(A_1) \subseteq f^*(A_0 \cup A_1) \). First let \(b \in f_*(A_0 \cup A_1)\). Then there must exist some \(a \in A_0 \cup A_1\) such that \(f(a) = b\). Either \(a \in A_0\) or \(a \in A_1\). If \(a \in A_0\), then by definition of the image \(f_*(A_0 \cup A_1)\), \(b \in Y\) and \(f(a) = b\), and so by definition \(b \in f_*(A_0)\). Similarly, if \(a \in A_1\), then there must be a \(b \in Y\) such that \(f(a) = b\), and therefore  \(b \in f_*(A_1)\). It is clear then that if \(b \in f_*(A_0)\) or  \(b \in f_*(A_1)\), then  \(b \in f_*(A_0 \cup A_1)\), and therefore \(f_*(A_0 \cup A_1) \subseteq f_*(A_0) \cup f_*(A_1)\).
+
+Next, let \(b \in f_*(A_0) \cup f_*(A_1)\). Either \(b \in f_*(A_0)\) or \(b \in f_*(A_1)\). To take the case of \(b \in f_*(A_0)\) first, then \(b \in Y\) and there exists an \(a \in A_0\) such that \(f(a) = b\). But if \(a \in A_0\), then \(a \in A_0 \cup A_1\), and so by definition \(b \in f_*(A_0\cup A_1)\). If instead \(b \in f_*(A_1)\), then similarly there exists an \(a \in A_1\) such that \(f(a) = b\), and so \(a \in f_*(A_0 \cup A_1)\), and so by definition \(b \in f_*(A_0\cup A_1)\). Therefore, \(f_*(A_0) \cup f_*(A_1) \subseteq f^*(A_0 \cup A_1) \). Finally, since \(f_*(A_0 \cup A_1) \subseteq f_*(A_0) \cup f_*(A_1)\) and \(f_*(A_0) \cup f_*(A_1) \subseteq f^*(A_0 \cup A_1) \), \(f_*(A_0 \cup A_1) = f_*(A_0) \cup f_*(A_1)\).
+
+\paragraph{2.b} \(f_*(A_0 \cap A_1) = f_*(A_0) \cap f_*(A_1)\)
+
+This statement is false. As an example, let \(X = \{1,2,3\}, Y = \{1, 2\}\), and a function \(f: X \rightarrow Y\) between them such that \(f= \{(1,1), (2,1), (3,2)\}\). Let \(A_0 \subset A = \{1\}\) and \(A_1 \subset A = \{2\}\). Then, \(f^*(A_0 \cap A_1) = \emptyset\) since \(A_0 \cap A_1 = \emptyset\), but \(f^*(A_0) \cap f^*(A_1) = \{1\}\)
+
+However, it is the case that \(f_*(A_0 \cap A_1) \subseteq f_*(A_0) \cap f_*(A_1)\). Let \(b \in f_*(A_0 \cap A_1)\). By definition, \(b \in Y\) and there is an \(a \in A_0 \cap A_1\) such that \(f(a) = b\). Since \(a \in A_0 \cap A_1 \), \(a \in A_0\) and \(a \in A_1\), so by definition of an image \(b \in f_*(A_0)\) and \(b \in f_*(A_1)\), and so \(b \in f_*(A_0) \cap f_*(A_1)\). Therefore, \(f_*(A_0 \cap A_1) \subseteq f_*(A_0) \cap f_*(A_1)\). 
+
+Note that the original statement is true when \(f\) is \emph{injective}. 
+To show this, let \(b \in f_*(A_0) \cap f_*(A_1)\). By definition, \(b \in Y\), and there is an \(a_0 \in A_0\) such that \(f(a_0) = b\), and an \(a_1 \in A_1\) such that \(f(a_1) = b\). Since \(f\) is injective, then \(f(a_0) = f(a_1) = b\), and therefore \(a_1 = a_2\), which will simply be reffered to as \(a\) for the remainder of the proof. Since \(a \in A_0\) and \(a \in A_1\), then \(a \in A_0 \cap A_1\), and so by definition, \(b \in f_*(A_0 \cap A_1)\) and \(f_*(A_0) \cap f_*(A_1) \subseteq f_*(A_0 \cap A_1)\).
+
+Therefore, only when \(f\) is injective does \(f_*(A_0 \cap A_1) = f_*(A_0) \cap f_*(A_1)\).
+
+\paragraph{2.c} \(f_*(\overline{A_0}) = \overline{f_*(A_0)}\) 
+
+This statement is false. As an example, let \(X = \{1,2,3\}, Y = \{1, 2\}\), and a function \(f: X \rightarrow Y\) between them such that \(f= \{(1,1), (2,2), (3,2)\}\). Let \(A_0 \subset A = \{1, 2\}\). Therefore, \(\overline{A_0} = \{3\}\) and \(f_*(\overline{A_0}) = 2\). However,  since \(f_*(A_0)= {1,2}\), then \( \overline{f_*(A_0)}= \emptyset\), and so \(f_*(\overline{A_0}) \neq \overline{f_*(A_0)}\). 
+
+\paragraph{2.d} \(f_*(A_0 - A_1) = f_*(A_0) - f_*(A_1)\)
+
+This statement is false. As an example, let \(X = \{1,2,3\}, Y = \{1, 2\}\), and a function \(f: X \rightarrow Y\) between them such that \(f= \{(1,1), (2,2), (3,2)\}\). Let \(A_0 \subset A = \{2, 3\}\) and \(A_1 \subset A = \{2\}\). Then  \(A_0 - A_1 = \{3\}\), and   \(f^*(A_0 - A_1) = \{2\}\). However, \(f_*(A_0) = {2}\) and \( f_*(A_1) = \{2\}\), so \(f_*(A_0) - f_*(A_1) = \emptyset\) and so \(f_*(A_0 - A_1) \neq f_*(A_0) - f_*(A_1)\).
+
+\paragraph {2.e} \(f_*(A_0 + A_1) = f_*(A_0) + f_*(A_1)\)
+
+This statement is false. As an example, let \(X = \{1,2,3\}, Y = \{1,2\}\), and a function \(f: X \rightarrow Y\) between them such that \(f= \{(1,1), (2,2), (3,2)\}\). Let \(A_0 \subset A = \{1, 2\}\) and \(A_1 \subset A = \{1, 3\}\). Then  \(A_0 + A_1 = \{2, 3\}\), and   \(f^*(A_0 + A_1) = \{2\}\). However, \(f_*(A_0) = \{1,2\}\) and \( f_*(A_1) = \{1,2\}\), so \(f_*(A_0) - f_*(A_1) = \emptyset\) and so \(f_*(A_0 - A_1) \neq f_*(A_0) - f_*(A_1)\).
+
+
+\paragraph{Problem 3} Bounding Axioms and the Well Ordered Principle
+
+\begin{itemize}
+\item \textbf{Definition} Let \(T\) be a non-empty subset of the integers. An integer \(l\) is a lower bound for \(T\) if for all \(t \in T, l \leq t\). If the set  \(T\)  has some lower bound then we say the set is bounded below.
+\item \textbf{Bounded Below Axiom} Every non-empty set of integers which is bounded below has a smallest element.
+\item \textbf{Well Ordering Principle} Every non-empty set of natural numbers has a smallest element.
+\end{itemize}
+
+\paragraph {Problem 3.a} Show that the bounded below axiom implies the Well Ordering Principle.
+
+Choose a non-empty set \(X\) such that \(X \subseteq \mathbb{N}\). Then, for all elements \( x \in X, x \in \mathbb{Z} \), and so \(X \subseteq \mathbb{Z}\). Since for all \(x \in X, 0 \leq x\), then by definition 0 is a lower bound for \(X\), and so \(X\) is bounded below. Then by the Bounding Axiom, \(X\) has a smallest element and so every set in the natural numbers has a smallest element.
+
+\paragraph {Problem 3.b} Prove that the Well Ordering Principle implies the Bounded Below Axiom.
+
+Let \(T\) be a non-empty set of integers with a lower bound \(l\). If \( 0 \leq l, T \subseteq \mathbb{N}\), and so by the Well Ordering Principle \(T\) has a smallest element.
+
+ In the case where \(l < 0\), then define a function \(f:\mathbb{Z} \rightarrow \mathbb{Z}\) such that \(f(t) = t - l\), and a set \(S = \{f(t) : t \in T \}\). 
+ First, note that \(f\) is bijective, as it has an inverse \(g:\mathbb{Z} \rightarrow \mathbb{Z}, g(t) = t + l, g\circ f (t) = g(f(t)) = g(t - l) = t - l + l = t\) and \(f\circ g(t) = f(g(t)) = f(t + l) = t + l - l = t\). Also note that if \(f(a) \leq f(b)\) then \(a \leq b\), as \(f(a) = a - l, f(b) = b - l\), and so \(a - l \leq b - l = a \leq b\).
+ 
+ Next, we will show that \(S \subseteq \mathbb{N}\).
+ Since \(l\) is negative, then for all \( s \in S, s = f(t) = t - l = t + \left|l\right|,\) for some \(t \in T\).
+ If \(t \geq 0, t + \left|l\right| \geq 0\) and if \(t \leq 0\), since \(l \leq t\), then the inequality \( l \leq t \leq 0 = 0 \leq t - l \leq -l = 0 \leq t + \left|l\right| \leq \left|l\right|\), and so for every \(s \in S, s \geq 0\).
+ 
+ Since for all \(s \in S, 0 \leq s\), then \(S \subseteq N\), and therefore by the Well Ordering Principle has a smallest element \(j_S \in S\). Since \(f\) is bijective, there must must then be a smallest element \(j_T \in T\) such that \(f^{-1}(j_T) = j_S\). It is clear that since \(j_S \leq s\) for all elements \(s \in S\), then \(j_T \leq t\) for all elements \(t \in T\), and so \(T\) has a smallest element as well.
+Therefore, the Well Ordering Principle implies the Bounded Below Axiom.
+
+\paragraph {Problem 3.c} Show that the bounded below axiom implies the bounded above axiom.
+
+For completeness, it will first be shown that if \(a \geq b, -b \geq -a\). Then, that the function \(f: \mathbb{Z} \rightarrow \mathbb{Z}, f(t) = -t\) is bijective, and finally that if a non empty set of integers has an upper bound, then that a Bounded Below axiom implies the Bounded Above axiom as well.
+
+To show that if \(a \geq b, -b \geq -a\), note that \(a \geq b, a-b \geq 0, -b \geq -a\). 
+Second, take a function \(f: \mathbb{Z} \rightarrow \mathbb{Z}\) such that \(f(t) = -t\). It is clear that \(f\) is bijective since it has an inverse, itself. \(f \circ f(t) = f(f(t) = f(-t) = -(-t) = t\).
+
+Finally, let \(T \subseteq \mathbb{Z}\) with an upper bound \(u\) such that \( T = \{t \in \mathbb{Z}:  u \geq t, u \in \mathbb{Z}\}\)  
+Then construct a new set \(S = \{f(t) : t \in T \}\). 
+Since for all \(t\in T, u \geq t\), then \(f(t) \geq f(u)\). 
+Therefore  \(S\) has a lower bound, and so by the Bounding Axiom has a smallest element \(l\). 
+However, since \(f\) is bijective, there must exist an element \(b \in T\) such that \(f^{-1}(l) = b\). 
+
+Since for all elements \(s \in S, s \geq l\), then by the bijectivity of \(f\) for all elements \(t \in T, b \geq t\), and so \(T\) has a largest element. So, if every non-empty set of integers with a lower bound has a smallest element, then every non-empty set of integers with an upper bound has a largest element.
+
+\paragraph{Problem 4} Prove that if \(X\) is finite, then \(\mathcal{P}(X)\) is finite and \( \left| \mathcal{P}(X) \right| = 2^{\left | X \right |}\).
+ 
+\subparagraph{Base Case}  Let \(X = \emptyset \). Then the \(\mathcal{P}(X)\) is equal to \(\{\emptyset\}\),  \(\left|X\right| = 0\) and \(\left|\mathcal{P}(X)\right| = 1\) which is equal to \(2^{\left| X \right|} = 2^0 = 1\).
+
+\subparagraph{Base Case} Let \(X = \{ x \}\) for some element \(x\). Then the \( \mathcal{P}(X) \) is equal to \( \{ \emptyset, \{x\} \} \),  \( \left| X \right| = 1 \) and \( \left| \mathcal{P}(X) \right| = 2\), which is equal to \(2^{\left| X \right|} = 2^1 = 2\).
+%Does this need to actually be about n+1?
+\subparagraph{Inductive Proposition} Assume \(\left|A\right| =n \) implies
+ \( \left| \mathcal{P}(A) \right| = 2^{\left|A\right|}\), then for some non-empty set \(X\), \( \left|X\right| = n + 1 \)  implies \( \left| \mathcal{P}(X) \right| = 2^{n+1}\)
+
+\subparagraph{Proof of Inductive Proposition} 
+
+\textbf{A.} Assume \(\left|A\right| =n \) implies
+ \( \left| \mathcal{P}(A) \right| = 2^{\left|A\right|}\) and let
+\( \left|X\right| = n + 1 \) 
+for some non empty \(X\). Choose an \(x\) in \(X\) and let \(A = X - \{x\}\). Then let 
+\(\mathcal{Q} = \mathcal{P}(X) - \mathcal{P}(A)\), or \(\mathcal{Q} = \{S \subseteq \mathcal{P}(X) :  x \in S \}\). 
+
+\textbf{B.} Next, let there be a function \(\gamma
+: \mathcal{P}(A) \rightarrow \mathcal{Q}\), such that for some element \(a \in A, \gamma(a) = a \cup {x}\). 
+This function has an inverse \(\epsilon: \mathcal{Q} \rightarrow \mathcal{P}(A), \epsilon(q) = q - \{x\}, q \in Q\), since \(\epsilon \circ \gamma (S) = \epsilon(\gamma(S)) = \epsilon(S \cup \{x\}) = (S \cup \{x\}) - \{x\}= S - \{x\}\), and since \(x \notin T, T \subseteq \mathcal{P}(A)\), then \(S - \{x\} = S\)for some \(S \in A\). 
+and \( \gamma \circ \epsilon(T) = \gamma(\epsilon(T)) = \gamma(T-\{x\}) = (T - \{x\}) \cup \{x\} =
+ (T \cup \{x\}) - (\{x\} - \{x\}) = (T \cup \{x\}) - \emptyset = T \cup \{x\}\),
+  but since \(T \subseteq \mathcal{Q}\), then by the definition of \(\mathcal{Q}, x \in T\), and so \(T \cup \{x\} = T\) and \(\gamma \circ \epsilon(T) = T\). Since \(\gamma\) has an inverse, it is bijective. Since the cardinality of \(\mathcal{P}(A)\) is assumed to be \(2^n\), by definition (found in section 2.2.9 of the class notes) there exists a bijection \(h: \underline{2^n} \rightarrow \mathcal{P}(A)\). Define a new function \(h': \underline{2^n} \rightarrow \mathcal{Q}\) such that \(h'(n)= \gamma \circ h(n)\). Since \(h\) and \(\gamma\) are bijective, \(h'\) is bijective, \(\left|\mathcal{Q}\right| = 2^n\).
+ 
+\textbf{C.}
+By the inductive hypothesis, \(\left|\mathcal{P}(A)\right| = 2^{\left|A\right|} = 2^n \). Therefore, \(\left|\mathcal{Q}\right| = \left|\mathcal{P}(A)\right| = 2^{\left|A\right|} = 2^n \). 
+As was proven by the proposition in section 2.2.12 of the class notes, \( \left|\mathcal{Q}\cup \mathcal{P}(A)\right| =\left|\mathcal{Q}\right| +  \left|\mathcal{P}(A)\right| = 2^n + 2^n = 2^{n+1}\). It is important to note here that this proposition applies because \(\mathcal{P}(A)\) and \( \mathcal{Q}\) are disjoint, since every subset of \(\mathcal{Q}\) contains \(x\), and every subset of \(\mathcal{P}(A)\) does not. And, since \(\mathcal{Q} \cup \mathcal{P}(A) = (\mathcal{P}(X) - \mathcal{P}(A)) + \mathcal{P}(A) = \mathcal{P}(X)\), then \( \left|\mathcal{P}(X)\right| = 2^{n+1}\), and the proof is complete.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
