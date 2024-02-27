@@ -26,9 +26,9 @@ Integers are everywhere, we all get them intuitively after years of grade
 school, so it's a good choice for learning groups. This chapter is building up
 to what how we can use modulo to study finite groups, and I think we're gonna be
 using them a lot. Lets dive in.
-\section{Divison}
+\section{Division}
 
-Before we can understand what it means to take a modulo, we gotta figure out how we build integers. Thats gonna involve prime numbers, but to understand why those are special we need to know what it means to divide an integer. Nevermind that we need the definition of multiplication to figure that out first.
+Before we can understand what it means to take a modulo, we gotta figure out how we build integers. Thats gonna involve prime numbers, but to understand why those are special we need to know what it means to divide an integer. Never mind that we need the definition of multiplication to figure that out first.
 
 \define{Definition} An integer \(a\) is called a \emph{multiple} of an integer \(b\) if \(a = bq\) for some integer \(q\). Then we say \(b\) is a \emph{divisor} of \(a\), and say \(b|a\).
 
@@ -38,7 +38,7 @@ Before we can understand what it means to take a modulo, we gotta figure out how
 	\item If \(a \neq \emptyset  \text{ and } b|a,\text{then } |b| \leq |a|, \text{ since } |b| \leq |b| \cdot |q| = |a|\). From that we can see that if \(b|a \text{ and } a|b, |a| = |b|\). The absolute values are used here because \(b, q\), or \(a\) could be negative.
 
 	\item \(1|b \text{ is always true. If } b|1\) is also true, then \(b = \pm 1\).
-	\item The only multipe of 0 is 0 itself. So for \(a|b\), \(a = 0\) implies \(b = 0\), \(0|0\) However, any integer \(a|0, \text{ since } 0 = a \cdot 0\).
+	\item The only multiple of 0 is 0 itself. So for \(a|b\), \(a = 0\) implies \(b = 0\), \(0|0\) However, any integer \(a|0, \text{ since } 0 = a \cdot 0\).
 \end{itemize}
 
 \define{Axiom} The Well Ordering Principle.
@@ -47,21 +47,21 @@ This one is a big one for me, since I'm getting a little stir crazy about the de
 
 \define{Theorem} (Division Algorithm). For any integers \(a\) and \(b\), with \(b > 0\), there exists unique integers \(q\) (the \textbf{quotient}) and \(r\) (the \textbf{remainder}) such that \[a = bq + r, \text{\textit{ with }} 0 \leq r < b.\]
 
-Proof Thoughts: This proof uses the \hyperref[def:1.1.2]{Well Ordering Principle} to show that there is an \(r\) which satisfies the equation \(r = a - bq, \text{\textit{ with }} 0 \leq r < b\). It then uses the definition of \hyperref[def:1.1.1]{division} and some arithematic manipulation to show that they are unique. Not gonna lie this one was a bit brain bendier for me than the other ones. I need to practice my number theory.
+Proof Thoughts: This proof uses the \hyperref[def:1.1.2]{Well Ordering Principle} to show that there is an \(r\) which satisfies the equation \(r = a - bq, \text{\textit{ with }} 0 \leq r < b\). It then uses the definition of \hyperref[def:1.1.1]{division} and some arithmetic manipulation to show that they are unique. Not gonna lie this one was a bit brain bendier for me than the other ones. I need to practice my number theory.
 
 Proof: Lets take the set of all remainders \(R = \{a - bq : a, b, q \in \Integers, b > 0\}\). We would like to consider only the nonnegative elements, \(R^+\). To do so we must first show that \(R^+\) is not empty. Consider the element \(j = a - bq: a, b, q\in \Integers, b > 0, q = -|a|\). Clearly \(j \in R\). Then \(j = a - (-|a| \cdot b) = a + (|a| \cdot b)\), which is either \(b\) if \(a \leq 0\) or \(b |a \cdot- 1|\) when \(a \geq 0\), and since by definition \( b > 0\), then so is \(j\) and \(j \in R^+\). Therefore \(R^+ \neq \emptyset\).
 
-By the Well Ordering Principle, there exists some smallest element which we will call \(r \in R^+\). By definition, \(r \geq 0\), and \(r = a - bq\) for some \(a, b, q \in \Integers\). We need to show that additionally \(r < b\) to show the existance of an element that satisfies the requirements of the theorem.
+By the Well Ordering Principle, there exists some smallest element which we will call \(r \in R^+\). By definition, \(r \geq 0\), and \(r = a - bq\) for some \(a, b, q \in \Integers\). We need to show that additionally \(r < b\) to show the existence of an element that satisfies the requirements of the theorem.
 
 We claim that we cannot have \( r \geq b\), ands lets do a small proof by contradiction to show so. Let \(s = r - b, s \in R^+\). It is clear that \(s < r\), and since \(s \in R^+, s \geq 0\). This is the contradiction. Since \(s = r - b, s = a - bq - b = a - b(q + 1)\).
 
 Finally, rearranging the construction of \(r\) to define \(a\), we see that there must exist an \(a = bq + r, 0 \leq r < b\).
 
-To show that they are unique, suppose we had two ways of writing \(a\) in terms of \(b\): \(a = bq + r \) and \(a = bp + s\). Note that \(0 \leq r < b\) and \(0 \leq s < b\). Then we have that \(bq + r = bp + s\), \((s - r) = bq - bp = b(q-p)\). Then we can see that \(b|(s-r)\), but both \(r < b and s < b\), and the only way for that to make sense is if \(s - r = 0\). This implies that \(bq - bp = 0\) so \(bq = bp, q = p, s = r\), and therefore \(q\) and  \(r\) are unique. We have existance and uniqueness of \(q\) and  \(r\), therefore the theorem is proven. On to the next.
+To show that they are unique, suppose we had two ways of writing \(a\) in terms of \(b\): \(a = bq + r \) and \(a = bp + s\). Note that \(0 \leq r < b\) and \(0 \leq s < b\). Then we have that \(bq + r = bp + s\), \((s - r) = bq - bp = b(q-p)\). Then we can see that \(b|(s-r)\), but both \(r < b and s < b\), and the only way for that to make sense is if \(s - r = 0\). This implies that \(bq - bp = 0\) so \(bq = bp, q = p, s = r\), and therefore \(q\) and  \(r\) are unique. We have existence and uniqueness of \(q\) and  \(r\), therefore the theorem is proven. On to the next.
 
 \define{Theorem} Let \(\mathcal{I}\) be a nonempty set of integers, closed under addition and subtraction. Then it contains either 0 alone, or some smallest positive element, in which case \(\mathcal{I}\) contains every multiple of this element.
 
-Proof Thoughts: So, we can work with the assumption that we're closed under addition and subtraction, \(a + b \in \mathcal{I}, a - b \in \mathcal{I}\). Then we can use the Well Ordering Principle to show that it's got a smallest positive element \(b\). Now we need to show that every multiple of that element = \(\mathcal{I}\). Showing that \(b\Integers \subseteq \mathcal{I}\) is easy. The converse is the interseting part of the proof. This one is still simpler than the last one (thank god for that, for me).
+Proof Thoughts: So, we can work with the assumption that we're closed under addition and subtraction, \(a + b \in \mathcal{I}, a - b \in \mathcal{I}\). Then we can use the Well Ordering Principle to show that it's got a smallest positive element \(b\). Now we need to show that every multiple of that element = \(\mathcal{I}\). Showing that \(b\Integers \subseteq \mathcal{I}\) is easy. The converse is the interesting part of the proof. This one is still simpler than the last one (thank god for that, for me).
 
 Proof: Since \(\mathcal{I} \neq \emptyset\), it is either \(\{0\}\), or contains a non zero element, by the assumptions in the proof. In the case that \({0} = \mathcal{I}\), we are done. In the second case, there is an element \( a \in \mathcal{I}\), but since the set is closed by subtraction, we can see that \(0 - a = -a\), so \( -a \in \mathcal{I}\). Either \(a\ or\ -a \) is positive, which means that the set \(mathcal{I^+}\) is non-empty. By the Well Ordering Principle, we know it has a smallest element, \(b\). Let \(b\Integers\) be the set of all multiples of \(b\). It is clear that since \(\mathcal{I}\) is closed under addition, that \(b\Integers \subseteq \mathcal{I}\).
 
