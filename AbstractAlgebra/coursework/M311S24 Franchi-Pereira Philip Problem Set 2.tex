@@ -1,0 +1,134 @@
+\documentclass[letterpaper]{article}
+
+\usepackage{graphicx}
+\usepackage[parfill]{parskip}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\newcommand{\Integers}{\mathbb{Z}}
+\newcommand{\Naturals}{\mathbb{N}}
+
+\begin{document}
+\noindent{\Large\textbf{M311S24 Problem Set 2} \textit{Franchi-Pereira, Philip}} \\
+\begin{itemize}
+    \item[Problem 1.a] Let \(S\) be a semigroup with some (not necessarily unique) left neutral element \(e_L\), and such that any element \(a\) has a left inverse \(b_L\) with respect to \(e_L\). Show that \(S\) is in fact a group.
+          \begin{itemize}
+              \item[\textbf{Lemma 1}] All left inverses \(b_L\) with respect to \(e_L\) in \(S\) are also right inverses.
+
+              \item[Proof] Note that since \(b_L \in S\), then it too has an inverse, denoted by \(b_{L}^{-1}\), such that \(b_{L}^{-1}b_{L} = e_{L}\). Then by associativity and the definition of our inverses:
+                    \begin{align*}
+                        b_{L}a & = e_L = b_{L}^{-1}b_L = b_{L}^{-1}(e\,b_L) = b_{L}^{-1}((b_{L}a)b_L) \\ & = (b_{L}^{-1}b_L)(ab_L) = e(ab_L) = ab_L
+                    \end{align*}
+              \item[\textbf{Lemma 2}] If \(e_{L}\)is a left neutral of \(S\), then it is also a right neutral.
+
+              \item[Proof] Since \(e_L \in S\), it has a left inverse: \(e_{L}e_{L} = e_{L}\).
+                    By Lemma 1, it must also have a right inverse, \(e_R\), such that \(e_{L}e_{R} = e_{L}\).
+                    But then we see that \(e_R = e_{L}e_{R} = e_L\), and so the neutral element \(e\) is unique.
+              \item[\textbf{Lemma 3}] The every element \(a \in S\) has a left inverse \(b_L\) and right inverse \(b_R\), then \(b_L = b_R = b\).
+
+              \item[Proof] Note that \(b_L = b_Le = b_L(ab_r) \text{, and by associativity, } b_L(ab_r) = (b_L{a})b_R = eb_R = b_R \). Therefore \(b_L = b_R\).
+              \item[\textbf{Lemma 4}] The inverse of any element \(a \in S\) is unique, denoted by \(a^{-1}\).
+
+              \item[Proof] Let \(b_0, b_1\) be inverses of \(a\). Then by similar logic to the previous lemma,
+                    \[b_{1} = b_{1}e =  b_{1}(ab_0) \text{ and by associativity } b_{1}({a}{b_0}) = ({b_1}{a})b_0 = eb_0 = b_0\]
+          \end{itemize}
+          Since the semigroup \(S\) contains a unique identity element, every element in \(S\) has a unique inverse, and the operation over \(S, \Delta\) is associative, then by definition \(S\) is actually a group
+
+
+    \item[1.b] Let \(S\) be a semigroup which has a left neutral \(e_L\) and such that any element a has a right inverse \(b_R\) with respect to \(e_L\). Is \(S\) necessarily a group? Prove or give a counter-example.
+
+          Counter Example: Let \(\phi: \Integers \times \Integers \rightarrow \Integers, \phi(a, b) \mapsto b\). We will show that  \(\phi\) is associative \[(ab)c = (b)c = (bc) = c\] \[a(bc) = a(c) = (ac) = c\]
+          So \(\Integers, \phi\) is a semigroup. Furthermore, every integer can be a left neutral element, since for any \(b \in \Integers\), all elements \(a \in \Integers\) by definition give \(\phi(a, b) = b\).
+          Finally, every element \(a \in \Integers\) has a right inverses with respect to \(e_L\). Since \(e_L\) can be any integer, any \(a, b \in \Integers\) produces \(e_L\).
+
+          However, \(\phi\) is not a group. The only choice of right neutral element such that \(ae = a,\ a, e \in \Integers\) is \(a\) itself, but any integer can be left neutral. Therefore there is no unique neutral element, and so \(\phi\) is not a group.
+
+    \item[Problem 2.a] Let \(G\) be a group such that for all \(g \in G,\ g^2 = e\). Prove that \(G\) is abelian.
+
+          Proof: Let \(a, b \in G\). To show that \(ab = ba\), note that the inverse of \(ab\) is \(ba\), since \((ba)(ab) = b(aa)b = bb = e\). Note also that \({(ba)}^2 = e\) by definition. It follows that \(ab = e(ab) = ((ba)(ba))(ab) = (ba)((ba)(ab)) = (ba)e = ba\).
+
+    \item[2.b] Suppose, instead we have for all  \(g \in G,\ g^3 = e\). Is \(G\) necessarily abelian? Prove or give a counterexample.
+
+    \item[Problem 3] Let \(G\) be finite group and let \(2| o(G)\). Prove that \(G\) has an odd number of elements of order 2. In particular \(G\) has at least one element of order 2.
+
+    \item[Problem 4]  Let \(H\) and \(K\) be subgroups of a group. Prove that \(H \cap K\) is a subgroup of \(G\).
+
+          Proof: For all \(a, b \in H \cap K,\ a, b \in H\). Since \(H\) is also a group, then clearly \(ab^{-1} \in H\). Likewise, \(a, b \in K\), so \(ab^{-1} \in K\). Since \(ab^{-1}\) is in both \(H\) and \(K\), \(ab^{-1}\in H \cap K\). Therefore by BB.Corollary 3.2.3, \(H \cap K\) is a subgroup of \(G\).
+
+    \item[Problem 5] Fill out the table. The first row of the table was computed using Python.
+          \begin{center}
+              \begin{tabular}{ c c c }
+                  (m,n)               & md(m,n) & qt(m,n) \\
+                  (987654321, 7531)   & 1326    & 131145  \\
+                  (987654321, -7531)  & 1326    & -131145 \\
+                  (-987654321, 7531)  & -1326   & -131146 \\
+                  (-987654321, -7531) & 6205    & 131146
+              \end{tabular}
+          \end{center}
+
+    \item[Problem 6]Let a and b be positive integers. Let \(a = h(a, b),\ b = k(a, b)\). Take any pair \(\omega, \gamma\) with \(\omega a + \gamma b = (a, b)\). Show that \((\omega, \gamma) = 1\)  and (\(h, k) = 1\).
+
+          Proof: Let \(d = (a, b)\), the GCD of \(a\) and \(b\). Then \(a = kd,\ b = kd\) and \(\omega a + \gamma b = d\). It follows that \(\omega a + \gamma b = \omega(hd) + \gamma(kd) = (\omega h + \gamma k)d = d\).
+          Then by BB A3.6.n, \((\omega h + \gamma k) = 1\) and so by definition, \((\omega, \gamma) = 1\) and \((h, k) = 1\).
+    \item[Problem 7] Let \(a, b, a_1, b_1\) be non-zero integers. Assume that \((a, b) = 1\) and \((a_1, b_1) = 1\) and that \(ab_1 = a_1b\) show that either \(a = a_1,\ b = b_1\) or \(a = -a_1,\ b = -b_1\).
+
+
+    \item[Problem 8] Find \((a, b)\) and \(\omega\) and \(\gamma\) such that \((\omega, \gamma) = (a,b)\) for (1) \(a = 26460, b = 126000\) and (2) \(a = 12091, b = 8439\)
+
+          Note: The role of \(qt\) was performed by \(a // b\) in Python, and \(md\) by \(a \% b\) in Python.
+
+          \begin{enumerate}
+              \item \(a = 26460, b = 126000\). As provided, this is 0. Assuming instead that \(a\) is the larger value of the two, then instead we have:
+                    \begin{align*}
+                        126000 & = 26460(4) + 20160 \\
+                        26460  & = 20160(1) + 6300  \\
+                        20160  & = 6300(3) + 1260   \\
+                        6300   & = 1260(5) + 0
+                    \end{align*}
+                    So gcd\((126000, 26460) = 1260\).
+              \item \(a = 12091, b = 8439\)
+                    \begin{align*}
+                        12091 & = 8439(1) + 3652 \\
+                        8439  & = 3652(2) + 1135 \\
+                        3652  & = 1135(3) + 247  \\
+                        1135  & = 247(4) + 147   \\
+                        247   & = 147(1) + 100   \\
+                        147   & = 100(1) + 47    \\
+                        100   & = 47(2) + 6      \\
+                        47    & = 6(7) + 5       \\
+                        6     & = 5(1) + 1       \\
+                        5     & = 1(5) + 0
+                    \end{align*}
+                    Therefore these two numbers are relatively prime.
+          \end{enumerate}
+
+    \item[Problem 9.a] The set \(a\Integers \cap b\Integers\) is by definition the set of common multiples of \(a\) and \(b\). Cite a result that shows that \(a\Integers \cap b\Integers\) is a subgroup of \(\Integers\). Why is this subgroup non-trivial?
+
+          In Problem 4 we proved that the intersection of two subgroups is itself a subgroup. It is nontrivial since \(0, ab, -ab \in a\Integers\) and \(0, ab, -ab \in b\Integers\), so it is clearly not empty.
+    \item[9.b] Use our results on subgroups of \(\Integers\) to show that the smallest positive common multiple of \(a\) and \(b\)is in fact the least common multiple.
+
+          Proof: Let \(m\Integers = a\Integers \cap b\Integers\), the set of all multiples of both \(a\) and \(b\). This set is clearly not empty, since both \(a\Integers\) and \(b\Integers\) contain \(ab\). Take \(m\Integers \cap \Naturals\), denoted \(m\Integers^+\). Clearly every element in it is positive, and so by the Well Ordering Principle, this set has a smallest element, \(l\), such that for all \(x \in m\Integers^+,\ l \leq x\). However, since every element in \(m\Integers^+\) is a common multiple of both \(a\) and \(b\), then \(l\) must be the smallest positive common multiple of \(a, b\)
+
+    \item[9.c] Take \(a = h(a, b)\) and \(b = k(a, b)\). Which previous result shows that \(h\) and \(k\) are relatively prime?
+
+          This was shown directly in Problem 6.
+
+    \item[9.d] Let \(c\) be a common multiple of \(a\) and \(b\). Certainly \((a, b)|c\) so we have \(c = n(a, b)\). Show that \(k | n\) and \(h | n\). What result allows us to conclude that \(hk | n\)?
+
+          Proof: Since \(c\) is a multiple of \(a\) and \(a = h(a,b)\), then there must exist some \(m_1\) such that \(c = m_1h(a,b)\). Likewise \(c\) is a multiple of \(b\) and so there must be an \(m_2\) such that \(c = m_2k(a,b)\). By the result of Problem 6, \(h\) and \(k\) are relatively prime, and so \(c = m_3hk(a,b)\)** for some \(m_3\). Therefore \(hk | n\)
+
+    \item[9.e] Show that \([a, b] = hk(a, b)\).
+
+          Proof: First note that \(ab = (h(a,b))(k(a,b)) = hk(a,b)(a,b)\).
+
+
+    \item[Problem 10] The positive numbers \(a\) and \(b\) are such that \(a + b = 57\) and \([a, b] = 680\). What are \(a\) and \(b\)?
+
+          \(a = 17\) and \(b = 40\). First, find all the prime factors of 680. This is made easier by the fact that it is even, and so \(680 / 2 /2 / 2 = 85\). Then, factoring out  \(5,\ 85 / 5 = 17\), so \(680 = 2*2*2*5*17\). Since \(a + b = 57,\ a = 17\) and \(b = 40\). Since \(a\) and \(b\) do not share factors, \((a,b) = 1\) and \([a, b] = \frac{|ab|}{(a,b)} = \frac{|ab|}{1} = 680\).
+
+    \item[Problem 11]
+    \item[Problem 12] We are given that \(n(n + 30)\) a perfect square. What are the possible values of \(n\)?
+
+\end{itemize}
+\end{document}
