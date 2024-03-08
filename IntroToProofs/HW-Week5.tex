@@ -1,0 +1,59 @@
+\documentclass[12pt, oneside]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[parfill]{parskip}
+\usepackage{hyperref}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Integers}{\mathbb{Z}}
+\newcommand{\Naturals}{\mathbb{N}}
+\newcommand{\Rationals}{\mathbb{Q}}
+\newcommand{\aandb}{\(a\) and \(b\)}
+
+\begin{document}
+\begin{flushleft}
+    \noindent{\Large\textbf{Math 156, Sec 4, H.W. 5} \textit{Franchi-Pereira, Philip}}
+\end{flushleft}
+March 4, 2024\\\\
+\begin{itemize}
+    \item[\textbf{Problem 1}] Prove that if \(x\) and \(y\) are positive real numbers, then \(\sqrt{x+y} \neq \sqrt{x} + \sqrt{y}\).
+
+          Suppose for sake of contradiction that if \(x\) and \(y\) are positive real numbers, that \(\sqrt{x+y} = \sqrt{x} + \sqrt{y}\). Squaring both sides of the equation, \((\sqrt{x+y})^2 = (\sqrt{x} + \sqrt{y})^2\), we see that \((\sqrt{x+y})^2 = x + y\), but
+          \((\sqrt{x} + \sqrt{y})^2 =(\sqrt{x} + \sqrt{y})(\sqrt{x} + \sqrt{y})= x + 2\sqrt{xy} + y\), which is a contradiction.
+    \item[\textbf{Problem 2}] Let \(x\)  be a positive real number. Prove that if \(x - \frac{2}{x} > 1\), then \(x > 2\).
+
+          Suppose for sake of contradiction that if \(x - \frac{2}{x} > 1\), then \(x \leq 2\). Since \(x\) is a positive real number and \(x \leq 2\), it is either 1 or 2.
+
+          \begin{itemize}
+              \item[\textbf{a)}] In the case where \(x = 1\), we have \( 1 - \frac{2}{1} = 1 - 2 = -1\), but \(-1 > 1\) is a contradiction.
+
+              \item[\textbf{b)}] In the case where \(x = 2\), we have \(2 - \frac{2}{2} = 2 - 1 = 1\), but \(1 > 1\) is also contradiction.
+          \end{itemize}
+          Therefore, \(x\) must be greater than 2.
+
+    \item[\textbf{Problem 3}] Suppose \(x \in \Integers\). Then \(x\) is odd if and only if \(3x +6\) is odd.
+
+          First we will show that if \(x\) is odd, then \(2x +6\) is odd. By definition if \(x\) is odd, then there exists \(k \in \Integers\) such that \(x = 2k + 1\). Then \(3x + 6 = 3(2k+1) + 6 = 6k + 9 = 2(3k + 4) + 1\). Since \(3k +4\) is an integer, then \(2(3k + 4) + 1\) is odd.
+
+          Conversely, if  \(3x +6\) is odd, then \(x\) is odd. To prove the contrapositive, suppose that \(x\) is even. Then there exists some \(k \in \Integers\) such that \(x = 2k\), and so \(3x + 6 = 6k + 6 = 2(3k+3)\). Since \(3k+3\) is an integer, \(2(3k+3)\) is even.
+
+
+    \item[\textbf{Problem 4}] Suppose \(x, y \in \Integers\). Then \(x^3 + x^2y = y^2 +xy\) if and only if \(y = x^2\) or \(y = -x\).
+
+
+          First we will show that if \(x^3 + x^2y = y^2 +xy\) then \(y = x^2\) or \(y = -x\). We may factor this equation to be \(x^2(x+y) = y(x+y)\). Then there are two cases:
+
+          \begin{itemize}
+              \item[\textbf{a)}] If \(y+x = 0\), then we have \(y = -x\), and \(x^2(0) = y(0) = 0\).
+              \item[\textbf{b)}] If \(y+x \neq 0\) we may cancel \((x+y)\) from both sides, and we have \(y = x^2\).
+          \end{itemize}
+
+          Conversely, if \(y = x^2\) or \(y = -x\), then \(x^3 + x^2y = y^2 +xy\). This can be shown directly.
+          \begin{itemize}
+              \item[\textbf{a)}] If \(y = x^2\), then we have \(x^3 + (x^2)(x^2) = (x^2)^2 +x(x^2)\) which becomes \(x^3 + x^4 = x^4 + x^3\).
+
+              \item[\textbf{b)}] If \(y = -x\) we have \(x^3 + x^2(-x) = (-x)^2 + x(-x)\) which becomes \(x^3 - x^3 = x^2 - x^2 = 0\).
+          \end{itemize}
+
+
+\end{itemize}
+\end{document}
