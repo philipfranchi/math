@@ -1,0 +1,126 @@
+\documentclass[12pt, oneside]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[parfill]{parskip}
+\usepackage{hyperref}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Integers}{\mathbb{Z}}
+\newcommand{\Naturals}{\mathbb{N}}
+\newcommand{\Rationals}{\mathbb{Q}}
+\newcommand{\aandb}{\(a\) and \(b\)}
+
+\begin{document}
+\begin{flushleft}
+    \noindent{\Large\textbf{Math 156, Midterm Section 4}\\
+        \textit{Franchi-Pereira, Philip}}
+\end{flushleft}
+March 12, 2024\\\\
+\begin{itemize}
+    \item[Problem 1] Suppose that \(A = \{\alpha, \odot, \Delta\}\), \(B = \{\delta, \oplus\}\). Find that cardinality of \(|P(P(A)) \times B|\).
+
+          \begin{align*}
+              |A|                   & = 3 \text{ and }  |B| = 2                           \\
+              |P(A)|                & = 8\text{ and so } |P(A) \times B| = |P(A)|\cdot|B| \\
+              |P(A)|\cdot|B|        & = 24                                                \\
+              |(P(|P(A) \times B|)) & =  2^{24}
+          \end{align*}
+    \item[Problem 2] Use a truth table to show that the following statements are logically equivalent. \(P \implies (Q \wedge R) = (P \implies Q) \wedge (P \implies R)\)
+          For \(P \implies (Q \wedge R) \)
+          \begin{center}
+              \begin{tabular}{ c|c|c|c|c}
+                  P & Q & R & \(Q \wedge R\) & \(P \implies (Q \wedge R)\) \\
+                  \hline
+                  T & T & T & T              & T                           \\
+                  T & T & F & F              & F                           \\
+                  T & F & T & F              & F                           \\
+                  T & F & F & F              & F                           \\
+                  F & T & T & T              & T                           \\
+                  F & T & F & F              & T                           \\
+                  F & F & T & F              & T                           \\
+                  F & F & F & F              & T                           \\
+              \end{tabular}
+          \end{center}
+          and for \((P \implies Q)\) and for \((P \implies R)\)
+          \begin{center}
+              \begin{tabular}{ c|c|c|c|c}
+                  P & Q & R & \(P \implies Q\) & \(P \implies R\) \\
+                  \hline
+                  T & T & T & T                & T                \\
+                  T & T & F & T                & F                \\
+                  T & F & T & F                & T                \\
+                  T & F & F & F                & F                \\
+                  F & T & T & T                & T                \\
+                  F & T & F & T                & T                \\
+                  F & F & T & T                & T                \\
+                  F & F & F & T                & T                \\
+              \end{tabular}
+          \end{center}
+
+          So we see that \((P \implies Q) \wedge (P \implies R)\) and \(P \implies (Q \wedge R)\) share the same truth table.
+
+          \begin{center}
+              \begin{tabular}{ c|c|c|c|c}
+                  P & Q & R & \((P \implies Q) \wedge (P \implies R)\) & \(P \implies (Q \wedge R)\) \\
+                  \hline
+                  T & T & T & T                                        & T                           \\
+                  T & T & F & F                                        & F                           \\
+                  T & F & T & F                                        & F                           \\
+                  T & F & F & F                                        & F                           \\
+                  F & T & T & T                                        & T                           \\
+                  F & T & F & T                                        & T                           \\
+                  F & F & T & T                                        & T                           \\
+                  F & F & F & T                                        & T                           \\
+              \end{tabular}
+          \end{center}
+    \item[Problem 3] Prove that if \(a\) is an odd integer, then \(a^2 \equiv 1 (\mod 8)\).
+
+          If \(a\) is an odd integer, then there exists some \(k \in \Integers\) such that \(a = 2k + 1\). Then \(a^2 = 4k^2 + 4k + 1\) and we have \((4k^2 + 4k + 1) \equiv 1 (\mod 8)\). Then \(8|(4k^2 + 4k + 1) - 1\) and so \(8| 4k^2 + 4k\). Since \(4k^2 + 4k = 4k(k + 1)\), then \(8|4k(k + 1)\). The proof proceeds by cases.
+
+          If \(k\) is even, then \(k = 2\alpha, \alpha \in \Integers\). Then \(4k(k + 1) = 8\alpha(2\alpha + 1)\) which is clearly divisible by \(8\).
+
+          If \(k\) is odd, then \(k = 2\alpha + 1, \alpha \in \Integers\). Then \(4k(k + 1) = (8\alpha + 4)(2\alpha+2) = 16(\alpha^2) + 24\alpha + 8 = 8(2(\alpha^2) + 12\alpha + 1)\), which is clearly divisible by 8.
+
+          Therefore \(8 | a^2 - 1 \), and so \(a^2 \equiv 1 (\mod 8)\).
+
+    \item[Problem 4] Prove that all integer numbers of the form \(7^n - 2^n\) are divisible by 5.
+
+          \textbf{Proof by Induction}
+
+          \underline{Base Case}: Suppose \(n = 1\). Then \(7^n - 2^n = 7 - 2 =5\), which is clearly divisible by 5.
+
+          \underline{Inductive Case}: Assume \(7^n - 2^n\) is divisible by 5. Then letting \(k = n+1\), we will prove that \(7^k - 2^k\) is also divisible by 5.
+
+          Since \(k = n +1\) then \(7^k - 2^k = 7\cdot 7^n - 2\cdot 2^n\). Since \(2 = 7 -5\) we have \(7\cdot 7^n - (7-5)\cdot 2^n\) which expands to \(7\cdot 7^n - 7\cdot 2^n - 5 \cdot 2^n = 7(7^n - 2^n) - 5\cdot 2^n\). Since \(5|7^n - 2^n\) then it divides \(7(7^n - 2^n)\), and it clearly divides \(5\cdot 2^n\), so \(5 | 7^k - 2^k\).
+
+          Therefore all integer numbers of the form \(7^n - 2^n\) are divisible by 5.
+
+    \item[Problem 5] Let \(x, y \in \Reals^+\). Prove that if \(x \leq y\) then \(x^2 \leq y^2\).
+
+          \begin{itemize}
+              \item[Direct Proof] If \(x \leq y\) then clearly \(x\cdot x \leq y \cdot x\). Likewise, \(x\cdot y \leq y\cdot y\). But then we have \(x^2 \leq x\cdot y \leq y^2\), and so \(x^2 \leq y^2\).
+
+              \item[Proof by Contrapositive] Assume instead \(y^2 < x^2\). Then
+                    we see that \(0 < x^2 - y^2\) which is a difference of squares so \(0 < (x + y)(x - y)\) and so dividing both sides by \((x+y)\), we see that \(0 < x -y\) and so \(y < x\).
+
+              \item[Proof by Contradiction] Assume that \(x \leq y\) and \(x^2 > y^2\). Then by the logic of the direct proof we may multiply both sides of the inequality \(x \leq y\) by \(x\) to see that \(x\cdot x \leq x \cdot y\) and by \(y\) to see that \(y\cdot x \leq y \cdot y\), which yields \(x^2 \leq y^2\), a contradiction.
+
+          \end{itemize}
+
+    \item[Problem 6] There exists an \(n \in Naturals\) such that \(11|2^n - 1\)
+
+          As an example, take \(n = 10\), since \(2^{10} = 1024\), and then \(1024 - 1 = 1023\), which is \(93 \cdot 11\).
+
+    \item[Problem 7]  Suppose \(a, b \in \Integers\). Prove that \(a \equiv b (\mod 10)\) if and only if \(a \equiv b (\mod 2)\) and  \(a \equiv b (\mod 5)\).
+
+          Since this is a bi-conditional, first we will show that if \(a \equiv b (\mod 10)\) then \(a \equiv b (\mod 2)\) and  \(a \equiv b (\mod 5)\).
+
+          If \(a \equiv b (\mod 10)\), then \(10 | a - b\), and so \(a-b = 10k\) for some \(k \in \Integers\). Since \(2|10\), then it is clear that \(2|10k\) and so \(2|a-b\). Therefore \(a \equiv b (\mod 2)\). Similarly, since \(5|10\), then \(5|10k\) and \(5|a-b\). Therefore \(a \equiv b (\mod 5)\).
+
+          Conversely, say \(a \equiv b (\mod 2)\) and  \(a \equiv b (\mod 5)\). Then \(2|a-b\) and so \(a-b = 2\alpha,\ \alpha \in \Integers\) and \(5|a-b\), so \(a-b = 5\beta,\ \beta \in \Integers\).
+
+          Finally, notice that \(2\alpha = 5\beta\), and since \(a-b | a-b\), then we have \(2\alpha | 5\beta\). Since \(2\nmid 5\), then \(2 | \beta\), and \(\beta = 2\gamma,\ \gamma \in \Integers\). Therefore, \(a-b =  5 \cdot 2 \cdot\gamma\), which is \(a-b = 10\gamma\), which is clearly divisible by 10. Therefore \(a \equiv b(\mod 10)\).
+
+
+\end{itemize}
+\end{document}
