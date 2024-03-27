@@ -1,0 +1,61 @@
+\chapter{Groups}
+
+\section{Binary Operations}
+Okay, so we are going off-book for some of this, combing what we learned in class with what we see in the assigned textbook.
+
+\define{Definition} (Binary Operation) A \textbf{Binary Operation} \(*\) on a set \(S\) is a function \(*: S \times S \rightarrow S\). That is, a function that takes an ordered pair \(a, b \in S\) and maps it to an element \(c \in S\).
+
+So we're quite familiar with these. Addition, Multiplication, Modulo, we have tons of examples of things that behave this way, \(*(a,b) = c\).
+
+Note that since we write these a whole bunch, rather than using \(*(a,b) = c\) (prefix notation for the nerds) we instead use \(a * b = c\) (infix notation). Often though, we drop the \(*\) altogether: \(ab = c\).
+
+\define{Definition} (Associativity) The binary operation \(*\) is considered associative if \(a * (b * c) = (a * b) * c\).
+
+Think of how \(a + b + c\), when you include parenthesis, doesn't change its value regardless of how you apply the parenthesis. Not everything is like that. Matrix multiplication is the prime example. Later we learn about how flipping and rotating shapes isn't like that either. Heres a really good one. Check for yourself that \(average(average(a ,b), c) \neq average(a, average(b, c))\).
+
+\define{Definition} (Identities) An element \(e \in S\) is called an identity for a binary operation \(*\) if \(a * e = a\).
+
+In class, we deal with ``left''  and ``right'' identities, which may also be called left and right neutrals. A left neutral \(e_L\) is one where \(e_L * a = a\). This does not say anything at all about what \(a * e_l\) is. We have a similar definition for the right neutral \(e_R\): \(a * e_R = a\), and no word on what \(e_R * a\) is.
+
+As an example, lets take \(*: \Integers \times \Integers \rightarrow \Integers\) such that \(a*b = a^b\). So \(2 * 3 = 2^3 = 8\). Well, here we have a right neutral, 1. For any \(a \in \Integers\), \(a * 1 = a^1 = a\). Easy. What we don't have is a left neutral. We cannot say that for all \(a \in \Integers\) there is a \(b\) \(b*a = a\). So there isn't a left neutral here, just a right.
+
+\define{Proposition} If \(S\) has a left neutral and a right neutral with respect to \(*\), then they are equal to each other.
+
+Proof: Since for all \(a \in S\), \(a = e_L*a\) and \(a = a*e_R\), then \(e_R = e_L*e_R = e_L\).
+
+This one is just a matter of perspective. You can think of \(e_L*e_R\) as the left applying itself on the right first, or the right applying itself on the left first, but they are both equally valid, and so we get the equality.
+
+\define{Corollary} If \(S\) has more than one neutral element \(e_0,\ e_1\), then there are all equal to each other, and we call them \underline{The Identity}.
+
+Proof: \(e_0 = e_0e_1 = e_1\).
+
+\define{Definition} (Inverses) If \(*\) has an identity \(e\), then for any \(a \in S\), \(b \in S\) is said to be an inverse of \(a\) if \(a * b = e\) and \(b * a = e\).
+
+Our obvious examples here are positive and negative numbers when adding. For our identity, we have \(0\), since \(0 + a = a + 0 = 0\). For our inverse, we have \(-a\) since \(a + -a = 0\) and \(-a + a = 0\).
+
+Notice how we have the same distinction between left and right inverses in the definition though. It doesn't always come up, but it's good to be aware of it.
+This happens when we lose information in one direction, but not the other.
+
+\define{Proposition} If \(S\) has a left inverse and a left neutral, then it has a right inverse and right neutral.
+
+See Problem 2.1
+
+\define{Proposition} If \(*\) is an associative binary operation on \(S\), with an identity, then any element of \(S\) has a most one inverse
+
+Proof: Let \(b, b' \in S\) be inverses of \(a \in S\). Then \(a*b = e\) and \(b'*a = e\). It follows that \(b' = eb' = (ba)b' = b(ab')\) by associativity, and \(b(ab') = be = b\).
+
+There are some other things we can prove too, I'll come back to it later.
+
+\section{Binary Structures}
+
+\define{Definition} A binary structure is a set \(S\), and a binary operation \(*\).
+
+\define{Definition} (Magma) A magma is a binary structure \((S, *)\). It isn't particularly interesting for our purposes
+
+\define{Definition} (Semigroup) A Semigroup is a magma where the operation is associative. No other requirements are made on it.
+
+While this is also very simple, we get a lot of interesting operations just through semigroups. I'm not gonna go into them here cause we are on a mission.
+
+\define{Definition} (Monoid) A Monoid is a semigroup where the operation has an identity element with respect to the set.
+
+\define{Definition} (Group) A Group is a Monoid where every element has an inverse.

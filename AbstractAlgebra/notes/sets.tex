@@ -1,0 +1,153 @@
+\chapter{Sets}
+
+Notes to come
+
+\section{Functions}
+
+\section{Equivalence Relations}
+
+\define{Definition} Let \(S\) be a set. A subset \(R\) of \(S \times S\) is called an equivalence relation of \(S\) if it satisfies the following:
+
+\begin{enumerate}
+    \item Reflexive: For all \(a \in S,\ (a,a) \in R\).
+    \item Symmetric: For all \(a, b \in S\, (a,b) \in R\) implies \((b,a) \in R\).
+    \item Transitive: For all \(a, b, c \in S\), if \((a,b) \in R\) and \((a,c) \in R\) implies \((a,c) \in R\).
+\end{enumerate}
+If \((a,b) \in R\) then we write \(a \sim b\).
+
+Lets do some trivial examples.
+
+\begin{enumerate}
+    \item A hard coded example
+
+          Given a set \(X = \{1,2,3\}\) then we can let \(R\) be an equivalence relation on \(X\) such that \(R = \{ (1,1), (2,2), (3,3)\}\). So it's reflexive, for every \(x \in X\) we have \(xRx\). It's transitive and symmetric but that is a little hard to see here.
+
+    \item The Universal Relation
+
+          One major copout of an example is \(X \times X\), which in relation terms is a relation \(R\) on \(X\) such that \(R = \{(a,b) | a, b \in X\}\). Since it's everything, it really isn't saying anything.
+
+    \item The classic equality, \(=\)
+
+          Equality is the most straightforward equivalence relation. We know it, we love it, we define it here for you now. \(E = \{(a,a) | a \in X\}\). Notice that the first one also defined equality over \(X\)!
+
+    \item Is Even
+
+          Okay this is a good one. Let \(R\) be an equivalence relation over the integers such that \(R = \{(a,b)\ |\ a-b\text{ is even}\}\). It's symmetric because \(aRa = a -a = 0\), which for our purposes we will say is even. It's symmetric because if \(a - b\) is even, you can bet that \(b - a\) is even too. And finally, it's transitive because if \(a-b\) is even and \(b - c \) is even, then since even \(-\) even is even, \(a - c\) is even too, so \(aRc\).
+\end{enumerate}
+
+Time for a classic exercise (apparently (this is being made in jest, in reference to what I see written ALL THE TIME in these books)).
+
+\textbf{Problem 1} Give an example of a set \(X\) and relation \(R\) on \(X\) which is reflexive and symmetric but not transitive.
+
+Let \(X = \{1,2,3\}\) and \(R\) be a relation on \(X\) such that \[R = \{(1,1), (2,2), (3,3), (1,2), (2,1), (2,3), (3,2)\}\]
+This one almost feels like cheating, but:
+\begin{itemize}
+    \item It's reflexive because for any \(a \in X\), \((a,a) \in R\).
+    \item It's symmetric because for any \(a, b \in X\), if \((a, b) \in R\) then we also have \((b,a) \in R\). We can verify that by hand.
+    \item The issue is that we have \((1,2)\) and we have \((2,3)\) but not \(1,3\).
+\end{itemize}
+
+
+\textbf{Problem 2} Give an example of a set \(X\) and relation \(R\) on \(X\) which is reflexive and transitive but not symmetric
+
+Easy. Take \(<\) over the integers as an example.
+
+\begin{itemize}
+    \item It's reflexive because for any \(a \in \Integers,\ a < a\).
+    \item It's transitive since for \(a,b,c \in \Integers\) where \(a < b\) and \(b < c\), we have \(a < c\)
+    \item It is not symmetric since we have \(8 \leq 9\), but not \(9 \leq 8\).
+\end{itemize}
+
+\textbf{Problem 3} Give an example of a set \(X\) and relation \(R\) on \(X\) which is symmetric and transitive but not reflexive
+
+\(X = \{1,2,3\}\) and \(R\) be a relation on \(X\) such that \[R = \{(1,2), (2,1), (2,3), (3,2), (1,3), (3,1)\}\]
+\begin{itemize}
+    \item It's symmetric since we have \(aRb\) and \(bRa\) in the relation.
+    \item It's transitive since for any \(a,b,c \in X\) we have \(aRb,\ bRc\, aRc\), since the example was small and I wrote it by hand/
+    \item It is not reflexive since we don't have \((1,1), (2,2), (3,3)\).
+\end{itemize}
+
+\textbf{Problem 4} Show that if \(R\) is symmetric and transitive but not reflexive there must be an \(a \in X\) such that for all \(b \in X \) both \((a, b) \notin R\) and \((b, a) \notin R\).
+
+The way this is worded has me feeling a little suspect, but I think this is to say that if we had \(aRb\) and \(bRa\) by symmetry, we could use transitivity to say \(aRa\). So there must be an \(a\) for every \(b\) such that it does not have both. In our toy case in Problem 3, we can see we never have \((1,1), (2,2), (3,3)\).
+
+\section{Partitions}
+
+Okay. So we have ways of saying one element in a set is equivalent to another. These people all share the same birthday, these planets are gas giants, these numbers are even. Now we can construct ways of referring to these guys as a logical unit.
+
+\define{Definition} A Partition \(\mathcal{A}\) of \(X\) is a subset of \(\Powerset(X)\) if it satisfies the following:
+\begin{itemize}
+    \item \textbf{Non Void} The empty set is not in \(\mathcal{A}\): \(\mathcal{A} \subseteq \Powerset{X} - \emptyset\)
+
+    \item \textbf{Covering} Every element of \(X\) can be found in a subset of \(\mathcal{A}\). For each \(x \in X\) there exists an \(B \in \mathcal{A}\) such that \(x \in B\). Alternatively
+          \[X = \bigcup_{B\in \mathcal{A}}{B}\]
+
+    \item \textbf{Disjoint} Every element \(x \in X\) shows up in only one element in \(\mathcal{A}\). That is, for all \(A, B \in \mathcal{A}\) if \(A \cap B \neq \emptyset\) then \(A = B\).
+\end{itemize}
+
+Examples:
+
+\begin{itemize}
+    \item The trivial example: For all \(x \in X\) there exists a \({x} \in \mathcal{A}\). So every element in \(X\) has its own subset.
+
+    \item Greater Than Or Equal To zero. Contrived, but we can let \(\mathcal{A}\) be a partition of \(X = \{-2,-1, 0, 1, 2\}\) such that \(\mathcal{A} = \{\{-1, -2\},\{0, 1, 2\}\}\). It is clear it is non-void (the empty set is nowhere to be seen). It is clear it is covering (all 5 elements of \(X\) are accounted for). And finally, it is clear that the two subsets of \(\mathcal{A}\) are disjoint.
+\end{itemize}
+
+\section{Ring Homomorphisms}
+
+Okay. So we've discussed two different ways of dividing elements in the set. One involves going element by element and saying ``these two things are similar'' (equivalence relation). The other is dividing elements into subsets, called a partition. Now we're gonna show that these two are actually... the same?
+
+\textbf{Notation} Let Part(\(X\)) be the set of all partitions of \(X\), and Equiv(\(X\)) be the set of all equivalence relations. Then we can make maps between them. Let \(\Sigma:\text{Part}(X) \rightarrow \text{Equiv}(X)\) and \(\Pi: \text{Equiv}(X) \rightarrow \text{Part}(X)\). These two are inverses (we'll come back to that).
+
+Let \(\Sigma(\mathcal{A}) = \{(x,y): \) there exists some \(A \in \mathcal{A}\) such that \({x, y} \subseteq A\}\). So this is going to be the pairs of all \((x,y)\) that show up in our partition. Is this an equivalence relation?
+
+\begin{itemize}
+    \item Reflexive: Since the partition is covering, for all \(x \in X\), there is an \(A \in \mathcal{A}\) such that \(x \in A\). So then \(a\Sigma(\mathcal{A})a\) is true because \((x,x) = \{x\}\), and that is definitely a subset of one of the \(A\)s.
+    \item Symmetric: Since the partition is divided into subsets, if one of them is \(\{x,y\}\) it is also \(\{y,x\}\) automatically.
+    \item Transitive: Take \(a, b, c\). If \(a\Sigma(\mathcal{A})b\) then \(\{a, b\} \subseteq\) some set \(A\). Cool. Now if \(b\Sigma(\mathcal{A})c\) then \(\{b,c\} \subseteq \) some set \(B\). But since a partition is disjoint, then that means \(A = B\), which means that \(a, b, c \in A\). Therefore \(a\Sigma(\mathcal{A})c\).
+\end{itemize}
+
+So, every partition comes with an equivalence relation for free. Next we'll do the inverse, \(\text{Equiv}(X) \rightarrow \text{Part}(X)\). We'll need an extra tool to do so.
+
+\define{Definition} Let \(R\) be an equivalence relation on \(X\). Then given \(a \in X\) we define an equivalence class of \(a\) with respect to \(R\), denoted by \([a]_r = {b \in X | aRb}\).
+
+So essentially, everything that is equivalent to \(a\) with respect to \(R\). Then we can let our aforementioned \(\Pi: \text{Equiv}(X) \rightarrow \text{Part}(X)\) be \(\Pi(R) = \{[a]_R: a \in X\}\).
+
+The claim was though that we can get partitions from this. Lets look:
+\begin{itemize}
+    \item Non Void: Since \(R\) is reflexive, we have \(aRa\) and so \(a \in [a]_R\). So no empty set here.
+    \item Covering: By the same logic, \(aRa\) for \(a \in X\) so we're covered.
+    \item Disjoint: Notice that if \(aRb\) then \([a]_R = [b]_R\), so they would show up just once in \(\Pi(R)\). So if \(c \in [a]_R\) and \(c \in [b]_R\) then for all \(x \in [a]_R,\ cRa\) and for all \(y \in [b]_R,\ cRy\). By the transitivity of \(R\), \(xRy\) and so \([a]_R = [b]_R\) and we preserve disjointness.
+\end{itemize}
+
+In class, we bothered to define this relationship next.
+
+Let \(P\) be a partition of \(X\). Let \(\pi_P: X \rightarrow P\) where \(\pi_P(x) = B\), where \(B \in P\) and \(x \in B\). So \(\pi_P\) retrieves the subset \(B\) of the partition \(P\) where \(x\) lives. What's nice about this is that since \(P\) is a partition, we get that it is disjoint and covering, which means the function is well defined.
+
+Then, given an equivalence relation \(R\) over \(X\), we denote \(\Pi(R)\) by \(X/R\). So then we can let \(\pi_{X/R}: X \rightarrow X/R\) such that \(\pi_{X/R}(a) = [a]_R\). So given an element in \(X\), get the class it belongs to.
+
+Let's put some pieces together. Suppose we have a surjection \(f: X\rightarrow Y\). So every element in \(Y\) is accounted for, but who's to say how many elements in \(X\) point to each one in \(Y\). Well, we can create a \(\pi_f\) that gives us the partition cell of \(x \in X\), which is \(X/f\). Then we can map each of those to a specific \(y \in Y\). We define a function \(\bar{f}: X/f \rightarrow Y\) such that \(\bar{f}([a]_f) = f(a),\ a \in X\). So for we're looking at the representative of \([a]_f\) and assigning the value of \(\bar{f}([a]_f)\) to be whatever \(f(a)\) would be. Essentially we've restricted \(\bar{f}\) to be \(f\) but with a domain only equal to the representatives. So we can actually take this one final step forward and think about how the elements of \(X/f\) are kind of like the ``inverses'' of Y, and we redefine \(X/f = {f^{-1}(y) | y \in Y}\). So we can actually go backwards! This makes \(\bar{f}([a]_f)\) a bijection.
+
+\begin{center}
+    \setlength{\unitlength}{4cm}
+
+    \begin{picture}(1, 1)(0,-0.5)
+        \put(0,0){X}
+        \put(0.2,0.05){\vector(1,0){0.75}}
+        \put(0.5,0.2){\footnotesize$f$}
+        \put(1,0){\(Y\)}
+        \put(0.2,-0.05){\vector(1,-0.75){0.3}}
+        \put(0.2,-0.3){\footnotesize$\pi_f$}
+
+        \put(0.4,-0.5){\(X/f\)}
+        \put(0.7,-0.3){\vector(1,0.75){0.3}}
+        \put(1,-0.3){\footnotesize$\bar{f}(a)$}
+
+    \end{picture}
+\end{center}
+
+So we did all that. What have we shown? Well, we've now defined \(f\) to be a composition of other, better behaved function. Rather than just being a surjection, it is a composition of an injection and a bijection.
+
+\section{Homomorphisms}
+
+\define{Definition} A Homomorphism is a

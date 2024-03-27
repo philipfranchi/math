@@ -1,0 +1,60 @@
+\documentclass[11pt, oneside]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[parfill]{parskip}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Integers}{\mathbb{Z}}
+\newcommand{\Naturals}{\mathbb{N}}
+\newcommand{\Rationals}{\mathbb{Q}}
+\newcommand{\aandb}{\(a\) and \(b\)}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\setlist[itemize]{leftmargin=0pt}
+\begin{document}
+{\Large\textbf{Math 156, Sec 4, H.W. 7}} \textit{Franchi-Pereira, Philip}
+\vspace{2em}
+
+\textbf{Problem 1} Consider the sequence \(\{\frac{3}{7n} + 9\}\). Then we have  \[\lim_{n\to \infty}{\frac{3}{7n} + 9} = 9\]
+\begin{itemize}
+    \item[]\underline{Def}: \[\lim_{n\to \infty}{\frac{3}{7n} + 9} \coloneq \forall \varepsilon > 0, \exists N \in \Integers^+, \forall n > N, |(\frac{3}{7n} + 9) - (9) | < \varepsilon\].
+    \item[]\underline{Scratch Work}: \(|\frac{3}{7n} + 9 - 9| < \varepsilon\) so \(|\frac{3}{7n}| < \varepsilon\) and since \(n\) is positive, we have \(\frac{3}{7n} < \varepsilon\). Then \(3 < 7n\varepsilon\) and \(\frac{3}{7\varepsilon} \leq n\).
+    \item[]\underline{Proof}: Given \(\varepsilon > 0\), take \(N = \ceil{\frac{3}{7\varepsilon}} + 1\). Observe that if \(n \geq N\) then \(n \geq \ceil{\frac{3}{7\varepsilon}} + 1\) so \(n > \ceil{\frac{3}{7\varepsilon}}\) and so \(n > \frac{3}{7\varepsilon}\). Then \(7\varepsilon n > 3\) and \(\varepsilon > \frac{3}{7n}\). Thus \(|(\frac{3}{7n} + 9) - (9)| < \varepsilon\) and \(L = 9\)
+\end{itemize}
+\vspace{2em}
+\textbf{Problem 2:} Consider the sequence \(\{\frac{1}{5n+4} - 3\}\). Then we have \[\lim_{n\to \infty}{\frac{1}{5n+4} - 3} = -3\]
+
+\begin{itemize}
+    \item[]\underline{Def}: \[\lim_{n\to \infty}{\frac{1}{5n+4} - 3 = 3} \coloneq \forall \varepsilon > 0, \exists N \in \Integers^+, \forall n > N, |(\frac{1}{5n+4} - 3) - (-3) | < \varepsilon\]
+    \item[]\underline{Scratch Work}: \(|\frac{1}{5n+4} - 3 + 3| < \varepsilon\) so \(|\frac{1}{5n+4}| < \varepsilon\) and since \(n\) is positive, \(\frac{1}{5n+4}  < \varepsilon\). Then \(1 < (5n+4)\varepsilon\) and \(1 < 5n\varepsilon + 4 \varepsilon\) which becomes \(\frac{1-4\varepsilon}{5\varepsilon} < n\).
+    \item[]\underline{Proof}: Given \(\varepsilon > 0\), take \(N = \ceil{\frac{1-4\varepsilon}{5\varepsilon}}\).
+          Observe that if \(n \geq N\)
+          then \(n \geq \ceil{\frac{1-4\varepsilon}{5\varepsilon}}\)
+          so then \(n \geq \frac{1-4\varepsilon}{5\varepsilon}\).
+          We see that \(n\cdot 5\varepsilon + 4\varepsilon \geq 1\)
+          so \(\varepsilon(5n +4) \geq 1\) and \(\varepsilon \geq \frac{1}{5n+4}\). Thus \(|(\frac{1}{5n+4} - 3) - (-3)| < \varepsilon\) and \(L = -3\)
+
+\end{itemize}
+\vspace{2em}
+
+\textbf{Problem 3} Consider the sequence \(\{\frac{15}{n^2} + \frac{2}{\sqrt{n}} + 3\}\).Then we have \[\lim_{n\to \infty}{\frac{15}{n^2} + \frac{2}{\sqrt{n}} + 3} = 3\]
+
+\begin{itemize}
+
+    \item[]\underline{Def}:
+          \[\lim_{n\to \infty}{\frac{15}{n^2} + \frac{2}{\sqrt{n}} + 3} = 3 \coloneq \forall \varepsilon > 0, \exists N \in \Integers^+, \forall n > N, |(\frac{15}{n^2} + \frac{2}{\sqrt{n}} + 3) - (3) | < \varepsilon\]
+    \item[]\underline{Scratch Work}: \(|\frac{15}{n^2} + \frac{2}{\sqrt{n}} + 3 - 3| = |\frac{15}{n^2} + \frac{2}{\sqrt{n}}|\). Since \(\sqrt{n} \leq n^2\) then \(\frac{1}{\sqrt{n}} \geq \frac{1}{n^2}\), so \( |\frac{15}{n^2} + \frac{2}{\sqrt{n}}| \leq |\frac{15}{\sqrt{n}} + \frac{2}{\sqrt{n}}|\). So \(|\frac{17}{\sqrt{n}}| < \varepsilon\) and we have \(\frac{17^2}{\varepsilon^2} \leq n\).
+    \item[]\underline{Proof}:
+          Given \(\varepsilon > 0\), take \(N = \ceil{\frac{17^2}{\varepsilon^2}}\).
+          Observe that if \(n > N\) then \(n > \ceil{\frac{17^2}{\varepsilon^2}}\) and taking the square root of both sides we have \(\sqrt{n} > \frac{17}{\varepsilon}\), then \(\varepsilon > \frac{17}{\sqrt{n}}\). Since \(\frac{17}{\sqrt{n}} = \frac{15}{\sqrt{n}} + \frac{2}{\sqrt{n}}\) and \(\sqrt{n} < n^2\), then we have \(\frac{15}{\sqrt{n}} > \frac{15}{n^2}\) and so \(\frac{17}{\sqrt{n}} > \frac{15}{n^2} + \frac{2}{\sqrt{n}}\). Therefore \(\varepsilon > |\frac{15}{n^2} + \frac{2}{\sqrt{n}}|\), and \(\varepsilon > |(\frac{15}{n^2} + \frac{2}{\sqrt{n}} + 3) - (3)|\), so \(L = 3\).
+\end{itemize}
+\vspace{2em}
+
+\textbf{Problem 4} Show that the sequence \(n^7\) diverges to infinity.
+\begin{itemize}
+    \item[]\underline{Def}: \[\lim_{n\to \infty}{n^7} = -\infty \forall M \in \Integers^+, \exists N \in \Integers^+, (n > N \implies n^7 > M) \]
+    \item[]\underline{Scratch Work}: We need \(n^7 > M\). Solve for \(n\) by taking the seventh root \(n > \sqrt[7]{M}\), so \(N = \ceil{\sqrt[7]{M}}\).
+    \item[]\underline{Proof}: Given any number \(M \in \Integers^{+}\), choose \(N = \ceil{\sqrt[7]{M}}\). If \(n > N\) then \(n > \ceil{\sqrt[7]{M}}\), which means \(n > \sqrt[7]{M}\) and in turn \(n^7 > M\). Therefore the sequence diverges to infinity.
+\end{itemize}
+\end{document}
